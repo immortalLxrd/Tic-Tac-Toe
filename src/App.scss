@@ -1,0 +1,70 @@
+$cell-size: 10vh;
+$figure-size: $cell-size*.8;
+$action-sprite-size: $cell-size*.25;
+$action-sprite-border-size: $cell-size*.1;
+$action-sprite-color: rgba(34, 110, 69, 0.75);
+
+.App {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  height: $cell-size * 3;
+  width: $cell-size * 3;
+
+  &__cell {
+    width: $cell-size;
+    height: $cell-size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: rgb(238, 215, 180);
+    border: 1px solid black;
+  }
+
+  &__figure {
+    max-height: $figure-size;
+    max-width: $figure-size;
+    padding: 1px;
+    position: relative;
+  }
+}
+
+.selected {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: $action-sprite-color;
+}
+
+.available {
+  height: $action-sprite-size;
+  width: $action-sprite-size;
+  border-radius: 58%;
+  background-color: $action-sprite-color;
+}
+
+.chargeable {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: $action-sprite-border-size dashed $action-sprite-color;
+}
+
+.lost {
+  max-height: $cell-size * 8;
+  padding: 30px;
+  margin-left: 50px;
+  background-color: #9dd9bb;
+
+  &__logo {
+    width: 20px;
+    height: 20px;
+  }
+}

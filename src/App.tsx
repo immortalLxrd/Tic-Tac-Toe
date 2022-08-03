@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import './App.scss';
+import BoardComponent from "./components/BoardComponent";
+import {Players} from "./models/Players";
+import {Board} from "./models/Board";
 
 function App() {
-  return (
+    const [currentPlayer, setCurrentPlayer] = useState<Players>(Players.FIRST)
+    const [board, setBoard] = useState<Board>(new Board())
+
+    useEffect(() => {
+        restart();
+        setCurrentPlayer(Players.FIRST);
+    }, [])
+
+    function restart() {
+        const newBoard = new Board();
+        newBoard.initCells();
+        setBoard(newBoard);
+    }
+
+    function swapPlayer() {
+        setCurrentPlayer(currentPlayer === Players.FIRST ? Players.SECOND : Players.FIRST);
+    }
+
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BoardComponent board={board} setBoard={setBoard} currentPlayer={currentPlayer} swapPlayer={swapPlayer}/>
     </div>
   );
 }
