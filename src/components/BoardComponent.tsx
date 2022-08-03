@@ -1,4 +1,4 @@
-import React, {FC, useState} from "react";
+import React, {FC} from "react";
 import {Board} from "../models/Board";
 import CellComponent from "./CellComponent";
 import {Cell} from "../models/Cell";
@@ -8,13 +8,14 @@ import {OMark} from "../models/marks/OMark";
 
 
 interface IBoardComponent {
-	board: Board ;
+	board: Board;
 	setBoard: (board: Board) => void;
 	currentPlayer: Players;
 	swapPlayer: () => void;
+	restart: () => void;
 }
 
-const BoardComponent: FC<IBoardComponent> = ({board,setBoard, currentPlayer, swapPlayer}) => {
+const BoardComponent: FC<IBoardComponent> = ({board, setBoard, currentPlayer, swapPlayer, restart}) => {
 
 
 	function click(cell: Cell) {

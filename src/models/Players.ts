@@ -1,4 +1,4 @@
 export enum Players {
-	FIRST,
-	SECOND
+	FIRST=1,
+	SECOND=2
 }
