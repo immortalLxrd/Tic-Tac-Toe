@@ -28,7 +28,7 @@ function App() {
 		<div className="App">
 			{(board.isWin() && (<>
 					<h1 className="title_condition">
-						{"PLAYER " + (currentPlayer === 1 ? 2 : 1) + " WIN"}
+						{"WINNER: PLAYER " + (currentPlayer === 1 ? 2 : 1)}
 					</h1>
 					<div className="restart-btn" onClick={restart}>Restart</div>
 				</>))
@@ -44,8 +44,13 @@ function App() {
 			</h1>
 			<div className="board">
 				{(board.isWin() || board.isDraw()) && <div className="block-screen"></div>}
-				<BoardComponent board={board} setBoard={setBoard} currentPlayer={currentPlayer} swapPlayer={swapPlayer}
-								restart={restart}/>
+				<BoardComponent
+					board={board}
+					setBoard={setBoard}
+					currentPlayer={currentPlayer}
+					swapPlayer={swapPlayer}
+					restart={restart}
+				/>
 			</div>
 		</div>
 	);
