@@ -13,6 +13,7 @@ $cell-border-size: $cell-size*.015;
 .board {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
   height: $cell-size * 3;
   width: $cell-size * 3;
 
@@ -41,9 +42,29 @@ $cell-border-size: $cell-size*.015;
   margin-bottom: 20px;
 }
 
+.title_condition{
+  font-weight: bold;
+  font-style: normal;
+  margin-bottom: 20px;
+}
+
 .restart-btn {
   padding: 10px 30px;
   margin-bottom: 20px;
   font-size: 20px;
+  font-weight: bold;
   border: $cell-border-size solid black;
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover {
+    background-color: cornflowerblue;
+  }
+}
+
+.block-screen {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 99999;
 }

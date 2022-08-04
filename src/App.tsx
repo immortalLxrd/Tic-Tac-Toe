@@ -26,17 +26,27 @@ function App() {
 
 	return (
 		<div className="App">
-			{!board.isEnd() ? <h1 className="title">
-					Tic Tac Toe
-				</h1> :
-				<>
-					<h1 className="title">
+			{(board.isWin() && (<>
+					<h1 className="title_condition">
 						{"PLAYER " + (currentPlayer === 1 ? 2 : 1) + " WIN"}
 					</h1>
 					<div className="restart-btn" onClick={restart}>Restart</div>
-				</>}
-			<BoardComponent board={board} setBoard={setBoard} currentPlayer={currentPlayer} swapPlayer={swapPlayer}
-							restart={restart}/>
+				</>))
+				|| (board.isDraw() && (<>
+					<h1 className="title_condition">
+						DRAW
+					</h1>
+					<div className="restart-btn" onClick={restart}>Restart</div>
+				</>))
+			}
+			<h1 className="title">
+				Tic Tac Toe
+			</h1>
+			<div className="board">
+				{(board.isWin() || board.isDraw()) && <div className="block-screen"></div>}
+				<BoardComponent board={board} setBoard={setBoard} currentPlayer={currentPlayer} swapPlayer={swapPlayer}
+								restart={restart}/>
+			</div>
 		</div>
 	);
 }

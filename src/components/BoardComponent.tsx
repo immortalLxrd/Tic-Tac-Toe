@@ -15,7 +15,7 @@ interface IBoardComponent {
 	restart: () => void;
 }
 
-const BoardComponent: FC<IBoardComponent> = ({board, setBoard, currentPlayer, swapPlayer, restart}) => {
+const BoardComponent: FC<IBoardComponent> = ({board, setBoard, currentPlayer, swapPlayer, restart }) => {
 
 
 	function click(cell: Cell) {
@@ -27,7 +27,6 @@ const BoardComponent: FC<IBoardComponent> = ({board, setBoard, currentPlayer, sw
 
 	return (
 		<React.Fragment>
-			<div className="board">
 				{
 					board.cells.map((row, index) =>
 						<React.Fragment key={index}>
@@ -43,7 +42,6 @@ const BoardComponent: FC<IBoardComponent> = ({board, setBoard, currentPlayer, sw
 						</React.Fragment>
 					)
 				}
-			</div>
 		</React.Fragment>
 	)
 };
